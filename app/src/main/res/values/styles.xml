@@ -11,6 +11,11 @@
 
     <!-- Other themes-->
 
+    <style name="ThemeSplash" parent="Theme.AppCompat.NoActionBar">
+          <item name="colorPrimaryDark">@color/colorDarkBlue</item>
+    </style>
+
+
     <style name="AppTheme2" parent="Theme.AppCompat">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000607"
-    android:theme="@style/AppTheme">
+    android:theme="@style/ThemeSplash">
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/gifImageView"
@@ -23,7 +23,7 @@
         android:id="@+id/viewtop"
         android:layout_width="match_parent"
         android:layout_height="135dp"
-        android:background="#041444"
+        android:background="#2179B6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
