@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000607"
     android:theme="@style/ThemeSplash">
 
+    <View
+        android:id="@+id/viewtop"
+        android:layout_width="match_parent"
+        android:layout_height="165dp"
+        android:background="#F30684B8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/gifImageView"
         android:layout_width="match_parent"
-        android:layout_height="297dp"
+        android:layout_height="wrap_content"
         android:src="@drawable/comp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,14 +28,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.327" />
 
-    <View
-        android:id="@+id/viewtop"
-        android:layout_width="match_parent"
-        android:layout_height="135dp"
-        android:background="#2179B6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
 
     <TextView
         android:id="@+id/text_splash"
@@ -49,7 +51,7 @@
 
         android:id="@+id/lightBulb"
         android:layout_width="match_parent"
-        android:layout_height="283dp"
+        android:layout_height="wrap_content"
         android:src="@drawable/lightbulb"
 
         app:layout_constraintBottom_toBottomOf="parent"
@@ -57,21 +59,21 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.924" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textTech"
         android:layout_width="wrap_content"
-        android:layout_height="53dp"
+        android:layout_height="wrap_content"
         android:text="THE PATH TO TECHNOLOGY"
+        android:textAlignment="center"
+        android:textColor="#CC8013"
         android:textSize="19sp"
         android:textStyle="bold"
-        android:textColor="#CC8013"
-        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.718" />
+        app:layout_constraintVertical_bias="0.756" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,28 +3,33 @@ package elitechcomps.com
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_splash.*
 
 class SplashActivity : AppCompatActivity() {
-    private val splashTimeOut: Long = 3000 // 3 sec
+    private val splashTimeOut = 3000L // 3 sec
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        Handler().postDelayed({
-            // This method will be executed once the timer is over
-            // Start your app main activity
-            startActivity(Intent(this, MainActivity::class.java))
+       /* //Hide App Icon
+        val componentName = ComponentName(this,SplashActivity::class.java)
+        packageManager.setComponentEnabledSetting(componentName,packageManager.)
 
-            // close this activity
+        TODO()WORK ON THIS
+        */
+
+        lightBulb.startAnimation(AnimationUtils.loadAnimation(this, R.anim.animfrombtm))
+        textTech.startAnimation(AnimationUtils.loadAnimation(this, R.anim.animfade))
+
+
+        Handler().postDelayed({
+            startActivity(Intent(this, MainActivity::class.java))
             finish()
         }, splashTimeOut)
-
-
     }
-
 }
-
 
 

@@ -24,21 +24,20 @@
     <androidx.cardview.widget.CardView
 
         android:id="@+id/cardView"
-        android:layout_width="309dp"
-        android:layout_height="342dp"
+        android:layout_width="314dp"
+        android:layout_height="320dp"
         app:cardBackgroundColor="#D5E9E6"
         app:cardCornerRadius="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.75">
+        app:layout_constraintVertical_bias="0.8">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraint_layout_in_card"
-            android:layout_width="333dp"
-            android:layout_height="341dp">
-
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <Button
                 android:id="@+id/btn_reset"
@@ -58,7 +57,7 @@
                 android:layout_width="100dp"
                 android:layout_height="26dp"
                 android:background="@drawable/green_round_btn"
-                android:text="ok"
+                android:text="ok ->"
 
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -74,28 +73,26 @@
                 android:text=""
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/TextLayout2"
-                app:layout_constraintVertical_bias="0.164" />
+                app:layout_constraintVertical_bias="0.146" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/TextLayout1"
-                android:layout_width="275dp"
-                android:layout_height="82dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:textColorHint="#0A035F"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.275"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.131">
+                app:layout_constraintVertical_bias="0.14">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/Name"
-                    android:layout_width="251dp"
-                    android:layout_height="65dp"
-                    android:layout_marginStart="16dp"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="Name"
                     android:inputType="textPersonName"
@@ -104,31 +101,27 @@
                     android:textColor="#000"
                     android:textSize="20sp"
 
-
                     />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/TextLayout2"
                 style="@android:style/Animation"
-                android:layout_width="275dp"
-                android:layout_height="81dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:textColorHint="#030E4B"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.275"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.6"
+                app:layout_constraintVertical_bias="0.60"
                 app:passwordToggleDrawable="@drawable/ic_about">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/Password"
-                    android:layout_width="248dp"
-                    android:layout_height="59dp"
-                    android:theme="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-
-                    android:layout_marginStart="16dp"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="Password"
                     android:inputType="textPassword"
@@ -147,7 +140,7 @@
 
     <TextView
         android:id="@+id/welcome_text"
-        android:layout_width="286dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="cursive"
         android:text="Welcome "
@@ -162,8 +155,9 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <pl.droidsonroids.gif.GifImageView
-        android:layout_width="177dp"
-        android:layout_height="135dp"
+        android:id="@+id/personIcon"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
         android:src="@drawable/usericon"
         app:layout_constraintBottom_toTopOf="@+id/cardView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -173,9 +167,8 @@
     <TextView
         android:id="@+id/remindme"
         android:layout_width="wrap_content"
-        android:layout_height="31dp"
-
-        android:text="Click me to remind you login details"
+        android:layout_height="wrap_content"
+        android:text="See login details"
         android:textColor="#0A2C97"
         android:textSize="15sp"
         android:textStyle="bold"
@@ -183,7 +176,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.733" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

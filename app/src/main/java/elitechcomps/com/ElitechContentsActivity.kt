@@ -1,17 +1,48 @@
 package elitechcomps.com
 
+import android.annotation.TargetApi
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
+import android.os.Build
 import android.os.Bundle
+import android.view.animation.AnimationUtils
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_elitech_contents.*
+
+/*
+    STARTED:  DEC 2019
+         BY:  ERIC G [The CODE STAR]
+         TO:  P.DAN -> ELITECH COMPS COLLEGE
+
+ */
 
 
 class ElitechContentsActivity : AppCompatActivity() {
 
+    @TargetApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_elitech_contents)
+
+        // Animate cardViews
+        about.startAnimation(AnimationUtils.loadAnimation(this, R.anim.animfromtop))
+        training.startAnimation(AnimationUtils.loadAnimation(this, R.anim.animfromtop))
+
+
+        location.startAnimation(AnimationUtils.loadAnimation(this, R.anim.animfrombtm))
+        achievements.startAnimation(AnimationUtils.loadAnimation(this, R.anim.animfrombtm))
+
+
+        contacts.startAnimation(AnimationUtils.loadAnimation(this, R.anim.animfromleft))
+        website.startAnimation(AnimationUtils.loadAnimation(this, R.anim.animfromright))
+
+
+        developer.startAnimation(AnimationUtils.loadAnimation(this, R.anim.animfrombtm))
+        rate.startAnimation(AnimationUtils.loadAnimation(this, R.anim.animfrombtm))
+
 
         openOtherActivities()
     }
@@ -20,74 +51,144 @@ class ElitechContentsActivity : AppCompatActivity() {
 
         about.setOnClickListener {
 
-            val intentAbout = Intent(this@ElitechContentsActivity, AboutActivity::class.java)
-            startActivity(intentAbout)
+            if (ContextCompat.checkSelfPermission(
+                    this,
+                    android.Manifest.permission.SEND_SMS
+                )
+                == PackageManager.PERMISSION_GRANTED
+            ) {
+
+                startActivity(Intent(this, AboutActivity::class.java))
+            } else {
+                ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(android.Manifest.permission.SEND_SMS),
+                    2
+                )
+            }
         }
 
         training.setOnClickListener {
 
-            val intentTraining = Intent(this@ElitechContentsActivity, TrainingActivity::class.java)
-            startActivity(intentTraining)
+            if (ContextCompat.checkSelfPermission(
+                    this,
+                    android.Manifest.permission.ACCESS_MEDIA_LOCATION
+                ) == PackageManager.PERMISSION_GRANTED
+
+            ) {
+
+                startActivity(Intent(this, TrainingActivity::class.java))
+            } else {
+                ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(android.Manifest.permission.ACCESS_MEDIA_LOCATION), 2
+                )
+            }
         }
 
         location.setOnClickListener {
 
-            val intentLocation = Intent(this@ElitechContentsActivity, LocationActivity::class.java)
-            startActivity(intentLocation)
+            if (ContextCompat.checkSelfPermission(
+                    this,
+                    android.Manifest.permission.ACCESS_FINE_LOCATION
+                )
+                == PackageManager.PERMISSION_GRANTED
+            ) {
+
+                startActivity(Intent(this, LocationActivity::class.java))
+            } else {
+                ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), 2
+                )
+            }
         }
+
 
         achievements.setOnClickListener {
 
-            val intentAchievements =
-                Intent(this@ElitechContentsActivity, AchievementsActivity::class.java)
-            startActivity(intentAchievements)
+            startActivity(Intent(this, AchievementsActivity::class.java))
         }
         contacts.setOnClickListener {
-            val intentContacts = Intent(this@ElitechContentsActivity, ContactsActivity::class.java)
-            startActivity(intentContacts)
 
+            if (ContextCompat.checkSelfPermission(
+                    this,
+                    android.Manifest.permission.CALL_PHONE
+                )
+                == PackageManager.PERMISSION_GRANTED
+            ) {
+                startActivity(Intent(this, ContactsActivity::class.java))
+            } else {
+                ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(android.Manifest.permission.CALL_PHONE),
+                    2
+                )
+            }
         }
         //      Links to Internet
 
         website.setOnClickListener {
 
-            val webIntent = Intent(
-                Intent.ACTION_VIEW,
-                Uri.parse("http://www.google.com"))
-            startActivity(webIntent)
+            if (ContextCompat.checkSelfPermission(
+                    this,
+                    android.Manifest.permission.INTERNET
+                )
+                == PackageManager.PERMISSION_GRANTED
+            ) {
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com")))
+            } else {
+                ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(android.Manifest.permission.INTERNET), 2
+                )
+            }
         }
         developer.setOnClickListener {
-            val webAboutDeveloper = Intent(
-                Intent.ACTION_VIEW,
-                Uri.parse("https://sites.google.com/view/www-codewithericg-com/home"))
-            startActivity(webAboutDeveloper)
+
+            if (ContextCompat.checkSelfPermission(
+                    this,
+                    android.Manifest.permission.INTERNET
+                )
+                == PackageManager.PERMISSION_GRANTED
+            ) {
+                startActivity(
+                    Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse("https://sites.google.com/view/www-codewithericg-com/home")
+                    )
+                )
+
+            } else {
+                ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(android.Manifest.permission.INTERNET), 2
+                )
+            }
+
+
         }
         rate.setOnClickListener {
-            val rateAction = Intent(
-                Intent.ACTION_VIEW,
-                Uri.parse("https://googleplay.com"))
-            startActivity(rateAction)
-        }
 
+            if (ContextCompat.checkSelfPermission(
+                    this,
+                    android.Manifest.permission.INTERNET
+                )
+                == PackageManager.PERMISSION_GRANTED
+            ) {
+                startActivity(
+                    Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse("https://googleplay.com")
+                    )
+                )
+            } else {
+                ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(android.Manifest.permission.INTERNET), 2
+                )
+            }
+
+        }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

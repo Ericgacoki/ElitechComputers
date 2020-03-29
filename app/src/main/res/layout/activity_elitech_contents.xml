@@ -23,7 +23,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
 
-
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
@@ -50,7 +49,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.064"
-            android:src="@drawable/ic_star" />
+            android:src="@drawable/ic_star"
+            android:contentDescription="star" />
 
         <ImageView
             android:id="@+id/star2"
@@ -62,7 +62,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.064"
-            android:src="@drawable/ic_star" />
+            android:src="@drawable/ic_star"
+            android:contentDescription="TODO" />
 
         <GridLayout
             android:layout_width="match_parent"
@@ -134,7 +135,7 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="180dp"
+                        android:layout_width= "180dp"
                         android:layout_height="100dp"
                         android:contentDescription="Services"
                         android:src="@drawable/training"
@@ -399,9 +400,10 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.8" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
-        </GridLayout>
 
+            </androidx.cardview.widget.CardView>
+
+        </GridLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
