@@ -14,22 +14,22 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-       /* //Hide App Icon
-        val componentName = ComponentName(this,SplashActivity::class.java)
-        packageManager.setComponentEnabledSetting(componentName,packageManager.)
+        /* Hide App Icon
+         val componentName = ComponentName(this,SplashActivity::myclass.java)
+         packageManager.setComponentEnabledSetting(componentName,packageManager.)
 
-        TODO()WORK ON THIS
-        */
+         TODO()WORK ON THIS
+         */
 
         lightBulb.startAnimation(AnimationUtils.loadAnimation(this, R.anim.animfrombtm))
         textTech.startAnimation(AnimationUtils.loadAnimation(this, R.anim.animfade))
 
 
         Handler().postDelayed({
-            startActivity(Intent(this, MainActivity::class.java))
+            //TODO() OPEN AUTHENTICATION ACTIVITY IF USER HAS ACCOUNT
+
+            startActivity(Intent(this, CreateAccount::class.java))
             finish()
         }, splashTimeOut)
     }
 }
-
-

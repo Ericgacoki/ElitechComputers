@@ -3,6 +3,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 29
@@ -12,7 +13,7 @@ android {
         minSdkVersion 23
         targetSdkVersion 29
         versionCode 1
-        versionName "1.2 -> www.elitechcomps.com"
+        versionName "1.5 by Eric gacoki"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -34,11 +35,25 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'com.google.android.material:material:1.1.0'
+
+
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
     implementation "androidx.cardview:cardview:1.0.0"
-    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.3'
     implementation "androidx.gridlayout:gridlayout:1.0.0"
     implementation 'com.android.support:support-annotations:28.0.0'
+
+    // Firebase Auth, Database, analytics
+
+    implementation 'com.google.firebase:firebase-database:19.2.1'
+    implementation 'com.google.firebase:firebase-auth:19.3.0'
+    implementation 'com.google.firebase:firebase-analytics:17.3.0'
+
+    // Handle gif and circular images
+
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.3'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 }

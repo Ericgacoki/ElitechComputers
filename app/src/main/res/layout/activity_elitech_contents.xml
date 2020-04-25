@@ -5,7 +5,7 @@
     android:id="@+id/ScrollViewLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E6E1D7"
+    android:background="#F3DBE4"
     tools:context=".ElitechContentsActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -23,6 +23,59 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/alerts_bell_clicked"
+            android:layout_width="55dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="47dp"
+            android:backgroundTint="#0A45DA"
+            android:foregroundGravity="center"
+            android:src="@drawable/ic_bell"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="@+id/viewForActivityMain"
+            app:layout_constraintEnd_toEndOf="@+id/viewForActivityMain"
+            app:layout_constraintHorizontal_bias="0.039"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/viewForActivityMain"
+            app:layout_constraintVertical_bias="0.473"
+            app:maxImageSize="30dp" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/alerts_bell"
+            android:layout_width="55dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="47dp"
+            android:backgroundTint="@color/white"
+            android:foregroundGravity="center"
+            android:src="@drawable/ic_redbell"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="@+id/viewForActivityMain"
+            app:layout_constraintEnd_toEndOf="@+id/viewForActivityMain"
+            app:layout_constraintHorizontal_bias="0.039"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/viewForActivityMain"
+            app:layout_constraintVertical_bias="0.473"
+            app:maxImageSize="30dp" />
+
+        <TextView
+            android:id="@+id/alerts_counter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="47dp"
+            android:maxLength="2"
+            android:text="0"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/viewForActivityMain"
+            app:layout_constraintEnd_toEndOf="@+id/viewForActivityMain"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@id/alerts_bell"
+            app:layout_constraintTop_toTopOf="@+id/viewForActivityMain"
+            app:layout_constraintVertical_bias="0.179" />
+
+
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
@@ -32,45 +85,17 @@
             android:textAllCaps="true"
             android:textColor="#DBD289"
             android:textSize="22sp"
-            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/viewForActivityMain"
             app:layout_constraintEnd_toEndOf="@id/viewForActivityMain"
             app:layout_constraintStart_toStartOf="@id/viewForActivityMain"
             app:layout_constraintTop_toTopOf="@id/viewForActivityMain"
             app:layout_constraintVertical_bias="0.546" />
 
-        <ImageView
-            android:id="@+id/star1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.24"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.064"
-            android:src="@drawable/ic_star"
-            android:contentDescription="star" />
-
-        <ImageView
-            android:id="@+id/star2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.764"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.064"
-            android:src="@drawable/ic_star"
-            android:contentDescription="TODO" />
-
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="800dp"
             android:layout_marginTop="70dp"
             android:columnCount="2"
-            android:outlineSpotShadowColor="#000"
             android:rowCount="4"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -80,7 +105,7 @@
 
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/about"
+                android:id="@+id/portal"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_rowWeight="1"
@@ -93,13 +118,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <ImageView
-                        android:layout_width="180dp"
-                        android:layout_height="100dp"
-                        android:contentDescription="About Elitech"
-                        android:src="@drawable/training"
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="110dp"
+                        android:layout_margin="10dp"
+                        android:src="@drawable/classp"
+                        app:civ_border_color="#07ff20"
+                        app:civ_border_width="0dp"
+                        app:civ_shadow_radius="5dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.0" />
@@ -107,10 +136,10 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="About Elitech"
+                        android:text="Student Portal"
                         android:textAlignment="center"
                         android:textColor="@color/colorPrimaryDark"
-                        android:textSize="18sp"
+                        android:textSize="20sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -121,7 +150,7 @@
 
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/training"
+                android:id="@+id/services"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_rowWeight="1"
@@ -134,13 +163,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <ImageView
-                        android:layout_width= "180dp"
-                        android:layout_height="100dp"
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="110dp"
+                        android:layout_margin="10dp"
                         android:contentDescription="Services"
-                        android:src="@drawable/training"
+                        android:src="@drawable/services"
+                        app:civ_border_color="#07ff20"
+                        app:civ_border_width="0dp"
+                        app:civ_shadow="true"
+                        app:civ_shadow_color="#000"
+                        app:civ_shadow_radius="0dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.0" />
@@ -148,10 +184,10 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Training services"
+                        android:text="Services Offered"
                         android:textAlignment="center"
                         android:textColor="@color/colorPrimaryDark"
-                        android:textSize="18sp"
+                        android:textSize="20sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -174,13 +210,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <ImageView
-                        android:layout_width="180dp"
-                        android:layout_height="100dp"
-                        android:contentDescription="Where we are located"
-                        android:src="@drawable/training"
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="110dp"
+                        android:layout_margin="10dp"
+                        android:contentDescription="Services"
+                        android:src="@drawable/map"
+                        app:civ_border_color="#07ff20"
+                        app:civ_border_width="0dp"
+                        app:civ_shadow="true"
+                        app:civ_shadow_color="#000"
+                        app:civ_shadow_radius="0dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.0" />
@@ -191,47 +234,7 @@
                         android:text="Location"
                         android:textAlignment="center"
                         android:textColor="@color/colorPrimaryDark"
-                        android:textSize="18sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.8" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/achievements"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="10dp"
-                app:cardBackgroundColor="#FA602E"
-                app:cardCornerRadius="20dp">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:layout_width="180dp"
-                        android:layout_height="100dp"
-                        android:contentDescription="how good are we?"
-                        android:src="@drawable/training"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.0" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Achievements"
-                        android:textAlignment="center"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textSize="18sp"
+                        android:textSize="20sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -254,13 +257,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <ImageView
-                        android:layout_width="180dp"
-                        android:layout_height="100dp"
-                        android:contentDescription="Get in touch with us"
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="110dp"
+                        android:layout_margin="10dp"
+                        android:contentDescription="Services"
                         android:src="@drawable/training"
+                        app:civ_border_color="#07ff20"
+                        app:civ_border_width="0dp"
+                        app:civ_shadow="true"
+                        app:civ_shadow_color="#000"
+                        app:civ_shadow_radius="0dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.0" />
@@ -271,7 +281,54 @@
                         android:text="Contacts"
                         android:textAlignment="center"
                         android:textColor="@color/colorPrimaryDark"
-                        android:textSize="18sp"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.8" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/achievements"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="#FA602E"
+                app:cardCornerRadius="20dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="110dp"
+                        android:layout_margin="10dp"
+                        android:contentDescription="Services"
+                        android:src="@drawable/services"
+                        app:civ_border_color="#07ff20"
+                        app:civ_border_width="0dp"
+                        app:civ_shadow="true"
+                        app:civ_shadow_color="#000"
+                        app:civ_shadow_radius="0dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Achievements"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="20sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -294,13 +351,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <ImageView
-                        android:layout_width="180dp"
-                        android:layout_height="100dp"
-                        android:contentDescription="More on the web"
-                        android:src="@drawable/training"
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="110dp"
+                        android:layout_margin="10dp"
+                        android:contentDescription="Services"
+                        android:src="@drawable/services"
+                        app:civ_border_color="#07ff20"
+                        app:civ_border_width="0dp"
+                        app:civ_shadow="true"
+                        app:civ_shadow_color="#000"
+                        app:civ_shadow_radius="0dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.0" />
@@ -311,7 +375,7 @@
                         android:text="Visit Website"
                         android:textAlignment="center"
                         android:textColor="@color/colorPrimaryDark"
-                        android:textSize="18sp"
+                        android:textSize="20sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -322,7 +386,7 @@
 
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/developer"
+                android:id="@+id/moreaboutus"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_rowWeight="1"
@@ -335,13 +399,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <ImageView
-                        android:layout_width="180dp"
-                        android:layout_height="100dp"
-                        android:contentDescription="More on the web"
-                        android:src="@drawable/training"
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="110dp"
+                        android:layout_margin="10dp"
+                        android:contentDescription="Services"
+                        android:src="@drawable/services"
+                        app:civ_border_color="#07ff20"
+                        app:civ_border_width="0dp"
+                        app:civ_shadow="true"
+                        app:civ_shadow_color="#000"
+                        app:civ_shadow_radius="0dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.0" />
@@ -349,10 +420,10 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="About Developer"
+                        android:text="More about Elitech"
                         android:textAlignment="center"
                         android:textColor="@color/colorPrimaryDark"
-                        android:textSize="18sp"
+                        android:textSize="20sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -376,13 +447,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <ImageView
-                        android:layout_width="180dp"
-                        android:layout_height="100dp"
-                        android:contentDescription="More on the web"
-                        android:src="@drawable/training"
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="110dp"
+                        android:layout_margin="10dp"
+                        android:contentDescription="Services"
+                        android:src="@drawable/services"
+                        app:civ_border_color="#07ff20"
+                        app:civ_border_width="0dp"
+                        app:civ_shadow="true"
+                        app:civ_shadow_color="#000"
+                        app:civ_shadow_radius="0dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.0" />
@@ -393,7 +471,7 @@
                         android:text="Rate Elitech App"
                         android:textAlignment="center"
                         android:textColor="@color/colorPrimaryDark"
-                        android:textSize="18sp"
+                        android:textSize="20sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"

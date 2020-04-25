@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
+    android:background="@color/white"
     tools:context=".AchievementsActivity">
 
     <View
         android:id="@+id/achievementsView"
         android:layout_width="match_parent"
         android:layout_height="44dp"
-        android:background="@color/colorLightblue"
+        android:background="@color/colorLightBlue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

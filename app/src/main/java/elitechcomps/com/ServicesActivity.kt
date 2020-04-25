@@ -1,18 +1,16 @@
 package elitechcomps.com
 
-import android.annotation.TargetApi
-import android.os.Bundle
 //import android.view.View
+import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 //import com.google.android.material.snackbar.Snackbar
-//import kotlinx.android.synthetic.main.content_training.*
+//import kotlinx.android.synthetic.main.activity_services.*
 
-class TrainingActivity : AppCompatActivity() {
+class ServicesActivity : AppCompatActivity() {
 
-    @TargetApi(23)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_training)
+        setContentView(R.layout.activity_services)
 
         /*fab.setOnClickListener { view: View ->
             Snackbar.make(view, "Content coming soon ...", Snackbar.LENGTH_LONG)

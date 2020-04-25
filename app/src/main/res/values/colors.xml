@@ -2,13 +2,13 @@
 <resources>
     <color name="colorPrimary">#041444</color>
     <color name="colorPrimaryDark">#041444</color>
-    <color name="colorAccent">#D81B60</color>
-    <color name="colorblack">#000</color>
-    <color name="colorLightgreen">#4DFF06</color>
-    <color name="colorLightblue">#0A45DA</color>
+    <color name="colorAccent">#00136F</color>
+    <color name="colorBlack">#000</color>
+    <color name="colorLightGreen">#4DFF06</color>
+    <color name="colorLightBlue">#0A45DA</color>
     <color name="white">#fff</color>
     <color name="colorDarkBlue">#F30684B8</color>
-
-
-
+    <color name="colorDarkOrange">#721D02</color>
+    <color name="Orange">#FA5A26</color>
+    <color name="Fade">#DD58595F</color>
 </resources>
