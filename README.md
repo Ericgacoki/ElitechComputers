@@ -1,3 +1,4 @@
 # ElitechComputers
-Elitech computer college college App.
-It also contains other services offered by Elitech
+Elitech computer college college App contains services offered by Elitech
+
+## \[ 🚧 Work in progress 👷‍♀️⛏🔧️🚧 \]
