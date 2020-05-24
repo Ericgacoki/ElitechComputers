@@ -29,7 +29,7 @@
         android:text="CREATE  ACCOUNT"
         android:textAlignment="center"
         android:textAllCaps="true"
-        android:textColor="#F0DBC0"
+        android:textColor="#F0DBC1"
         android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/topView"
@@ -97,7 +97,7 @@
         android:baselineAligned="false"
         app:layout_constraintBottom_toTopOf="@+id/etlayoutemail"
         app:layout_constraintEnd_toEndOf="@+id/etlayoutsecondname"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.50"
         app:layout_constraintStart_toStartOf="@+id/tplayoutfirstname"
         app:layout_constraintTop_toBottomOf="@+id/etlayoutsecondname">
 
