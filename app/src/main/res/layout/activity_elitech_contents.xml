@@ -16,7 +16,7 @@
             android:id="@+id/viewForActivityMain"
             android:layout_width="match_parent"
             android:layout_height="110dp"
-            android:background="#0A45DA"
+            android:background="#0552EC"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -76,6 +76,35 @@
             app:layout_constraintVertical_bias="0.179" />
 
 
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profilePic"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/ic_person"
+            app:civ_border_color="#ffff"
+            app:civ_border_overlay="true"
+            app:civ_border_width="0.2dp"
+            app:layout_constraintBottom_toBottomOf="@+id/viewForActivityMain"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.9"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toTopOf="@+id/viewForActivityMain"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/studentName"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:maxLength="12"
+            app:layout_constraintBottom_toTopOf="@+id/gridLayout"
+            app:layout_constraintEnd_toEndOf="@+id/profilePic"
+            app:layout_constraintStart_toStartOf="@+id/profilePic"
+            app:layout_constraintTop_toBottomOf="@+id/profilePic"
+            tools:text="Eric" />
+
+
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
@@ -83,8 +112,9 @@
             android:text="Elitech"
             android:textAlignment="center"
             android:textAllCaps="true"
-            android:textColor="#DBD289"
+            android:textColor="#FFFF"
             android:textSize="22sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/viewForActivityMain"
             app:layout_constraintEnd_toEndOf="@id/viewForActivityMain"
             app:layout_constraintStart_toStartOf="@id/viewForActivityMain"
@@ -92,6 +122,7 @@
             app:layout_constraintVertical_bias="0.546" />
 
         <GridLayout
+            android:id="@+id/gridLayout"
             android:layout_width="match_parent"
             android:layout_height="800dp"
             android:layout_marginTop="70dp"
@@ -111,7 +142,7 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="#FA602E"
+                app:cardBackgroundColor="#473D52"
                 app:cardCornerRadius="20dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -119,13 +150,14 @@
                     android:layout_height="match_parent">
 
                     <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/circleImageView"
                         android:layout_width="wrap_content"
                         android:layout_height="110dp"
                         android:layout_margin="10dp"
                         android:src="@drawable/classp"
-                        app:civ_border_color="#07ff20"
-                        app:civ_border_width="0dp"
-                        app:civ_shadow_radius="5dp"
+                        app:civ_border_color="#FFFF"
+                        app:civ_border_overlay="true"
+                        app:civ_border_width="0.8dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
@@ -136,15 +168,15 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
                         android:text="Student Portal"
                         android:textAlignment="center"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textSize="20sp"
+                        android:textColor="#FDCC3B"
+                        android:textSize="18sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.8" />
+                        app:layout_constraintTop_toBottomOf="@+id/circleImageView" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
@@ -156,24 +188,21 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="#07FF20"
+                app:cardBackgroundColor="#473D52"
                 app:cardCornerRadius="20dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <com.mikhaellopez.circularimageview.CircularImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/circleImageView2"
                         android:layout_width="wrap_content"
                         android:layout_height="110dp"
                         android:layout_margin="10dp"
-                        android:contentDescription="Services"
                         android:src="@drawable/services"
-                        app:civ_border_color="#07ff20"
-                        app:civ_border_width="0dp"
-                        app:civ_shadow="true"
-                        app:civ_shadow_color="#000"
-                        app:civ_shadow_radius="0dp"
+                        app:civ_border_color="#FFFF"
+                        app:civ_border_width="0.8dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
@@ -184,15 +213,16 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
                         android:text="Services Offered"
                         android:textAlignment="center"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textSize="20sp"
+                        android:textColor="#FDCC3B"
+                        android:textSize="18sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.8" />
+                        app:layout_constraintTop_toBottomOf="@+id/circleImageView2"
+                        app:layout_constraintVertical_bias="0.5" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
@@ -203,24 +233,21 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="#07FF20"
+                app:cardBackgroundColor="#473D52"
                 app:cardCornerRadius="20dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <com.mikhaellopez.circularimageview.CircularImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/circleImageView3"
                         android:layout_width="wrap_content"
                         android:layout_height="110dp"
                         android:layout_margin="10dp"
-                        android:contentDescription="Services"
                         android:src="@drawable/map"
-                        app:civ_border_color="#07ff20"
-                        app:civ_border_width="0dp"
-                        app:civ_shadow="true"
-                        app:civ_shadow_color="#000"
-                        app:civ_shadow_radius="0dp"
+                        app:civ_border_color="#FFFF"
+                        app:civ_border_width="0.8dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
@@ -231,15 +258,15 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
                         android:text="Location"
                         android:textAlignment="center"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textSize="20sp"
+                        android:textColor="#FDCC3B"
+                        android:textSize="18sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.8" />
+                        app:layout_constraintTop_toBottomOf="@+id/circleImageView3" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
@@ -250,24 +277,21 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="#FA602E"
+                app:cardBackgroundColor="#473D52"
                 app:cardCornerRadius="20dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <com.mikhaellopez.circularimageview.CircularImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/circleImageView4"
                         android:layout_width="wrap_content"
                         android:layout_height="110dp"
                         android:layout_margin="10dp"
-                        android:contentDescription="Services"
                         android:src="@drawable/training"
-                        app:civ_border_color="#07ff20"
-                        app:civ_border_width="0dp"
-                        app:civ_shadow="true"
-                        app:civ_shadow_color="#000"
-                        app:civ_shadow_radius="0dp"
+                        app:civ_border_color="#FFFF"
+                        app:civ_border_width="0.8dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
@@ -278,15 +302,15 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
                         android:text="Contacts"
                         android:textAlignment="center"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textSize="20sp"
+                        android:textColor="#FDCC3B"
+                        android:textSize="18sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.8" />
+                        app:layout_constraintTop_toBottomOf="@+id/circleImageView4" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
@@ -297,24 +321,21 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="#FA602E"
+                app:cardBackgroundColor="#473D52"
                 app:cardCornerRadius="20dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <com.mikhaellopez.circularimageview.CircularImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/circleImageView7"
                         android:layout_width="wrap_content"
                         android:layout_height="110dp"
                         android:layout_margin="10dp"
-                        android:contentDescription="Services"
                         android:src="@drawable/services"
-                        app:civ_border_color="#07ff20"
-                        app:civ_border_width="0dp"
-                        app:civ_shadow="true"
-                        app:civ_shadow_color="#000"
-                        app:civ_shadow_radius="0dp"
+                        app:civ_border_color="#FFFF"
+                        app:civ_border_width="0.8dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
@@ -325,15 +346,15 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
                         android:text="Achievements"
                         android:textAlignment="center"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textSize="20sp"
+                        android:textColor="#FDCC3B"
+                        android:textSize="18sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.8" />
+                        app:layout_constraintTop_toBottomOf="@+id/circleImageView7" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
@@ -344,24 +365,21 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="#07FF20"
+                app:cardBackgroundColor="#473D52"
                 app:cardCornerRadius="20dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <com.mikhaellopez.circularimageview.CircularImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/circleImageView9"
                         android:layout_width="wrap_content"
                         android:layout_height="110dp"
                         android:layout_margin="10dp"
-                        android:contentDescription="Services"
                         android:src="@drawable/services"
-                        app:civ_border_color="#07ff20"
-                        app:civ_border_width="0dp"
-                        app:civ_shadow="true"
-                        app:civ_shadow_color="#000"
-                        app:civ_shadow_radius="0dp"
+                        app:civ_border_color="#FFFF"
+                        app:civ_border_width="0.8dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
@@ -372,15 +390,15 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
                         android:text="Visit Website"
                         android:textAlignment="center"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textSize="20sp"
+                        android:textColor="#FDCC3B"
+                        android:textSize="18sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.8" />
+                        app:layout_constraintTop_toBottomOf="@+id/circleImageView9" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
@@ -392,24 +410,21 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="#07FF20"
+                app:cardBackgroundColor="#473D52"
                 app:cardCornerRadius="20dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <com.mikhaellopez.circularimageview.CircularImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/circleImageView5"
                         android:layout_width="wrap_content"
                         android:layout_height="110dp"
                         android:layout_margin="10dp"
-                        android:contentDescription="Services"
                         android:src="@drawable/services"
-                        app:civ_border_color="#07ff20"
-                        app:civ_border_width="0dp"
-                        app:civ_shadow="true"
-                        app:civ_shadow_color="#000"
-                        app:civ_shadow_radius="0dp"
+                        app:civ_border_color="#FFFF"
+                        app:civ_border_width="0.8dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
@@ -420,15 +435,16 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
                         android:text="More about Elitech"
                         android:textAlignment="center"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textSize="20sp"
+                        android:textColor="#FDCC3B"
+                        android:textSize="18sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.8" />
+                        app:layout_constraintTop_toBottomOf="@+id/circleImageView5"
+                        app:layout_constraintVertical_bias="0.6" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
@@ -440,24 +456,21 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="#FA602E"
+                app:cardBackgroundColor="#473D52"
                 app:cardCornerRadius="20dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <com.mikhaellopez.circularimageview.CircularImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/circleImageView6"
                         android:layout_width="wrap_content"
                         android:layout_height="110dp"
                         android:layout_margin="10dp"
-                        android:contentDescription="Services"
                         android:src="@drawable/services"
-                        app:civ_border_color="#07ff20"
-                        app:civ_border_width="0dp"
-                        app:civ_shadow="true"
-                        app:civ_shadow_color="#000"
-                        app:civ_shadow_radius="0dp"
+                        app:civ_border_color="#FFFF"
+                        app:civ_border_width="0.8dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
@@ -468,15 +481,16 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
                         android:text="Rate Elitech App"
                         android:textAlignment="center"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textSize="20sp"
+                        android:textColor="#FDCC3B"
+                        android:textSize="18sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.8" />
+                        app:layout_constraintTop_toBottomOf="@+id/circleImageView6"
+                        app:layout_constraintVertical_bias="0.6" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.cardview.widget.CardView>

@@ -1,10 +1,18 @@
 <resources>
     <string name="app_name">Elitech Computers</string>
-    <string name="errordescription">
+    <string name="errorDescription">
         Weak passwords are extremely <u><b>dangerous</b></u> and
         pose a great <u><b>risk</b></u> to your private data!
         The password you just entered does <b>NOT</b>
         meet the minimum recommended standards.</string>
-    <string name="googlesave">Allow google to save your password so that you won\'t need to remember it</string>
-
+    <string name="googleSave">Allow google to save your password so that you won\'t need to remember it</string>
+    <string name="help">Help</string>
+    <string name="autoPassword">AutoPassword</string>
+    <string name="reportIssue">Report issue</string>
+    <string name="create_account">Create Account</string>
+    <string name="forgot_password">Forgot password</string>
+    <string name="resendVerificationEmail">seems like you didn\'t verify your Email when you created your account.
+        Click the button below to receive an Email containing a verification link.
+        \n\n <u><b>NB:</b></u> Link will be sent to the email you used when creating account.</string>
+    <string name="guideText"><b>Password reset guide</b></string>
 </resources>

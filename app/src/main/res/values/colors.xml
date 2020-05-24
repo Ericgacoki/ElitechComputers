@@ -11,4 +11,6 @@
     <color name="colorDarkOrange">#721D02</color>
     <color name="Orange">#FA5A26</color>
     <color name="Fade">#DD58595F</color>
+    <color name="palePink">#F169FF</color>
+
 </resources>

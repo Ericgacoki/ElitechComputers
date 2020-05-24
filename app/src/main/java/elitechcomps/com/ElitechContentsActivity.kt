@@ -18,6 +18,9 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_contacts.view.*
 import kotlinx.android.synthetic.main.activity_elitech_contents.*
 
@@ -28,14 +31,21 @@ import kotlinx.android.synthetic.main.activity_elitech_contents.*
 
  */
 
-class ElitechContentsActivity : AppCompatActivity() {
+private val mAuth: FirebaseAuth? = FirebaseAuth.getInstance()
+private val mUser: FirebaseUser? = mAuth!!.currentUser
+private val mDatabase: FirebaseDatabase? = FirebaseDatabase.getInstance()
+private val mDatabaseReference: DatabaseReference? = mDatabase!!.reference.child("Students")
+private val mUserReference = mDatabaseReference!!.child(mUser!!.uid)
 
+private var suspended: Boolean = false
+private var fName: String = ""
+
+class ElitechContentsActivity : AppCompatActivity() {
 
     @TargetApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_elitech_contents)
-
 
         /**
          *  Animate cardViews */
@@ -55,7 +65,7 @@ class ElitechContentsActivity : AppCompatActivity() {
         moreaboutus.startAnimation(AnimationUtils.loadAnimation(this, R.anim.animfrombtm))
         rate.startAnimation(AnimationUtils.loadAnimation(this, R.anim.animfrombtm))
 
-
+        readData()
         requestPermissions()
         dealWithAlerts()
         openOtherActivities()
@@ -79,9 +89,23 @@ class ElitechContentsActivity : AppCompatActivity() {
         )
     }
 
+    private fun readData() {
+
+        mUser!!.reload()
+        mUserReference.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                fName = snapshot.child("First Name").value as String
+                suspended = snapshot.child("Suspended").value as Boolean
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {}
+        })
+
+        studentName.text = fName
+    }
     private fun dealWithAlerts() {
 
-        var alertsCount = 5
+        var alertsCount = 2
         alerts_counter.text = alertsCount.toString()
 
         /** Animate views */
@@ -100,7 +124,7 @@ class ElitechContentsActivity : AppCompatActivity() {
 
                 val mediaPlayer = MediaPlayer.create(this, R.raw.onfire)
                 mediaPlayer.start()
-                Handler().postDelayed({ mediaPlayer.stop() }, 1000)
+                Handler().postDelayed({ mediaPlayer.stop() }, 800)
 
             }
         }, 3000)
@@ -143,13 +167,9 @@ class ElitechContentsActivity : AppCompatActivity() {
                 )
                 == PackageManager.PERMISSION_GRANTED
             ) {
-
-
-                if (intent.resolveActivity(packageManager) != null) {
-
-                    //TODO() check if user is a student or not
-
-                    startActivity(Intent(this, StudentPortal::class.java))
+                val portalIntent = Intent(this, StudentPortal::class.java)
+                if (portalIntent.resolveActivity(packageManager) != null) {
+                    startActivity(portalIntent)
                 } else {
                     Toast.makeText(this, "Sorry, something went wrong!", LENGTH_LONG).show()
                 }

@@ -24,19 +24,13 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme3">
-        <activity android:name=".ForgotID">
 
-        </activity>
-        <activity android:name=".StudentPortal" />
-        <activity android:name=".AlertsActivity" />
-        <activity android:name=".MoreAboutUs" />
-        <activity android:name=".ActivityWarning" />
         <activity
             android:name=".SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/ThemeSplash">
 
-            <!-- This is the FIRST/LAUNCHING ACTIVITY -->
+            <!-- This is the FIRST or LAUNCHING ACTIVITY -->
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -45,13 +39,31 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".UserDetails">
+
+        </activity>
+        <!-- TODO() define orientation in these activities after creating their UI -->
+        <activity
+            android:name=".ForgotPassword"
+            android:configChanges="orientation"
+            android:theme="@style/ThemeAccount" />
+
+        <activity android:name=".StudentPortal" />
+
+        <activity android:name=".AlertsActivity" />
+
+        <activity android:name=".MoreAboutUs" />
+
+        <activity android:name=".ActivityWarning" />
+
         <activity
             android:name=".SignInActivity"
             android:screenOrientation="portrait"
             android:theme="@style/ThemeAccount" />
         <activity
             android:name=".ElitechContentsActivity"
-            android:configChanges="orientation|keyboard|screenSize" />
+            android:configChanges="orientation" />
         <activity
             android:name=".ContactsActivity"
             android:screenOrientation="portrait" />
@@ -64,10 +76,15 @@
         <activity
             android:name=".ServicesActivity"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".CreateAccount"
             android:screenOrientation="portrait"
             android:theme="@style/ThemeAccount" />
-    </application>
 
+        <activity
+            android:name=".ReverifyEmail"
+            android:screenOrientation="portrait"
+            android:theme="@style/ThemeAccount" />
+    </application>
 </manifest>

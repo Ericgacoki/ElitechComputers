@@ -5,12 +5,12 @@ import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
 import android.os.Bundle
-import android.util.Log
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
-import android.view.animation.AnimationUtils
 import android.widget.Toast
+import android.widget.Toast.LENGTH_SHORT
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.tasks.Task
@@ -19,16 +19,15 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import kotlinx.android.synthetic.main.activity_authentication.*
 import kotlinx.android.synthetic.main.activity_create_account.*
+import kotlinx.android.synthetic.main.activity_signin.*
+import kotlinx.android.synthetic.main.activity_warning.view.*
 
-//Firebase references
 private var mDatabaseReference: DatabaseReference? = null
 private var mDatabase: FirebaseDatabase? = null
 private var mAuth: FirebaseAuth? = null
-private const val TAG = "CreateAccount"
 
-/** global nullable variables */
+/**     global nullable variables */
 
 private var firstName: String? = null
 private var secondName: String? = null
@@ -47,27 +46,20 @@ class CreateAccount : AppCompatActivity() {
         )
         setContentView(R.layout.activity_create_account)
 
-        // Animate some views
-        profilePicture.startAnimation(AnimationUtils.loadAnimation(this, R.anim.animfromright))
-        btnsubmit.startAnimation(AnimationUtils.loadAnimation(this, R.anim.animfrombtm))
-        signal.visibility = View.INVISIBLE
+        offlineView.visibility = View.INVISIBLE
+        textOffline.visibility = View.INVISIBLE
 
 
-        if (!online(this)) {
-            Toast.makeText(this, " No internet ", Toast.LENGTH_LONG).show()
-        }
-
+        checkNetConnection()
         initialise()
         cleaner()
-
+        handleButtonClicks()
     }
 
     private fun initialise() {
-
         mAuth = FirebaseAuth.getInstance()
-        mDatabase = FirebaseDatabase.getInstance() //.setPersistenceEnabled(true)
+        mDatabase = FirebaseDatabase.getInstance()
         mDatabaseReference = mDatabase!!.reference.child("Students")
-        btnsubmit.setOnClickListener { createNewAccount() }
     }
 
     private fun cleaner() {
@@ -90,13 +82,54 @@ class CreateAccount : AppCompatActivity() {
         return networkInfo?.isConnected == true
     }
 
+    private fun checkNetConnection(): Boolean {
+        var isOnline = true
+
+        if (!online(this)) {
+            isOnline = false
+
+            offlineView.visibility = View.VISIBLE
+            textOffline.visibility = View.VISIBLE
+
+            Handler().postDelayed({
+                offlineView.visibility = View.INVISIBLE
+                textOffline.visibility = View.INVISIBLE
+            }, 5000)
+        }
+        return isOnline
+    }
+
+    private fun handleButtonClicks() {
+        btnsubmit.setOnClickListener {
+            createNewAccount()
+            checkNetConnection()
+
+        }
+
+        btnSignin.setOnClickListener {
+            val intentSignIn = Intent(this, SignInActivity::class.java)
+            if (intentSignIn.resolveActivity(packageManager) != null) {
+                startActivity(intentSignIn)
+                finish()
+            }
+        }
+
+        btnHelp.setOnClickListener {
+            //TODO() do something
+        }
+
+        reportIssue.setOnClickListener {
+            //TODO() do something
+        }
+    }
+
     private fun passwordIsStrong(password: String): Boolean {
         var strong = false
 
         if (
         // check password's length
 
-            (password.trim().length > 7)
+            (password.trim().length >= 8)
             &&
 
             // Check if password contains special characters
@@ -157,54 +190,55 @@ class CreateAccount : AppCompatActivity() {
         ) {
 
             /**
-             *              Password must be strong
+             *              Password must be strong to be able to login
              */
 
             if (passwordIsStrong(studentpassword!!)) {
 
-                // create account here
-                //TODO show loading and signal in btnSubmit drawable end
+                /**
+                 *     create account here .
+                 */
+                checkNetConnection()
                 disableButtons()
 
                 mAuth!!
                     .createUserWithEmailAndPassword(studentEmail!!, studentpassword!!)
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
-
-                            Log.d(TAG, "create user with email: successful")
                             val studentID = mAuth!!.currentUser!!.uid
-
                             verifyEmail()
 
                             /**
-                             *               update User profile info (save data in a real time database)
+                             *               update User profile info (save data in a real time database) .
                              */
 
                             val currentStudentDB = mDatabaseReference!!.child(studentID)
                             currentStudentDB.apply {
-                                child("Full Name").setValue("$firstName $secondName")
+                                child("First Name").setValue(firstName)
+                                child("Second Name").setValue(secondName)
                                 child("Phone").setValue(phoneNumber)
                                 child("Student's Email").setValue(studentEmail)
                                 child("Password").setValue(studentpassword)
+                                child("Suspended").setValue(false)
                             }
-
                             startNextActivity()
-
                         } else {
-                            //  TODO() stop loading
-
-                            Log.w(TAG, "create user with email: failed")
                             enableButtons()
                             //snack("Authentication failed")
-
                         }
                     }
             } else {
-                // show custom advice/ warning dialog
+                /**
+                 *      show custom advice /warning dialog for entering a weak password .
+                 */
                 val customWarningView =
                     LayoutInflater.from(this).inflate(R.layout.activity_warning, null)
 
                 val warningDialog = AlertDialog.Builder(this, 0)
+                //TODO() work on this exit (X) button
+
+                customWarningView.btnCancel.setOnClickListener {}
+
                 warningDialog.apply {
                     setView(customWarningView)
                     create().show()
@@ -233,14 +267,13 @@ class CreateAccount : AppCompatActivity() {
                 if (task.isSuccessful) {
                     Toast.makeText(
                         this@CreateAccount,
-                        "Verification email sent to   ${User.email}",
+                        "Verification email sent to ${User.email}",
                         Toast.LENGTH_LONG
                     ).show()
                 } else {
-                    Log.w(TAG, "sendEmailVerification", task.exception)
                     Toast.makeText(
                         this@CreateAccount,
-                        "Invalid Email, Please try again.",
+                        "Invalid Email,PleaseTryAgain.",
                         Toast.LENGTH_LONG
                     ).show()
                 }
@@ -249,7 +282,6 @@ class CreateAccount : AppCompatActivity() {
 
     private fun startNextActivity() {
 
-        //start next activity
         val intent = Intent(this@CreateAccount, ElitechContentsActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(intent)
@@ -263,31 +295,64 @@ class CreateAccount : AppCompatActivity() {
             .setAction("Action", null).show()
     }
 
-
     private fun disableButtons() {
         btnsubmit.apply {
             isEnabled = false
             background = getDrawable(R.drawable.greybtn)
+            text = "loading..."
         }
+        btnSignin.isEnabled = false
+        reportIssue.isEnabled = false
+        btnHelp.isEnabled = false
 
         clean.apply {
             isEnabled = false
             setImageDrawable(getDrawable(R.drawable.ic_clean_disabled))
         }
-
-        signal.visibility = View.VISIBLE
+        showLoading()
     }
 
     private fun enableButtons() {
         btnsubmit.apply {
             isEnabled = true
             background = getDrawable(R.drawable.btnselector)
+            text = "submit"
         }
-
+        btnSignin.isEnabled = true
+        reportIssue.isEnabled = true
+        btnHelp.isEnabled = true
         clean.apply {
             isEnabled = true
             setImageDrawable(getDrawable(R.drawable.ic_clean))
         }
-        signal.visibility = View.INVISIBLE
+        hideLoading()
+    }
+
+    private fun showLoading() {
+        logInProgress.apply {
+            visibility = View.VISIBLE
+            setViewColor(getColor(R.color.Orange))
+            startAnim()
+        }
+    }
+
+    private fun hideLoading() {
+        logInProgress.apply {
+            visibility = View.INVISIBLE
+            setViewColor(getColor(R.color.Fade))
+            stopAnim()
+        }
+    }
+
+    private var exit = false
+    override fun onBackPressed() {
+        if (exit) {
+            super.onBackPressed()
+        }
+        Toast.makeText(this, "press again to exit", LENGTH_SHORT).show()
+        exit = true
+        Handler().postDelayed({
+            kotlin.run { exit = false }
+        }, 2000)
     }
 }

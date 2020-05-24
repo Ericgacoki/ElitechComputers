@@ -5,7 +5,6 @@
     android:id="@+id/ConstraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     tools:context=".CreateAccount">
 
     <View
@@ -20,38 +19,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profilePicture"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_margin="5dp"
-        android:layout_marginTop="52dp"
-        android:src="@drawable/ic_person"
-        app:civ_border_color="#F04B18"
-        app:civ_border_width="0.55dp"
-        app:civ_shadow="true"
-        app:civ_shadow_color="#2DE731"
-        app:layout_constraintBottom_toTopOf="@+id/etlayoutsecondname"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.958"
-        app:layout_constraintStart_toEndOf="@+id/createaccount"
-        app:layout_constraintTop_toTopOf="@+id/topView"
-        app:layout_constraintVertical_bias="1.0" />
-
     <TextView
         android:id="@+id/createaccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTintMode="src_over"
         android:bufferType="normal"
-        android:focusable="auto"
-        android:fontFamily="casual"
+        android:fontFamily="@font/exo_bold"
         android:text="CREATE  ACCOUNT"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textColor="#F0DBC0"
         android:textSize="17sp"
-        android:textStyle="bold|italic"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/topView"
         app:layout_constraintEnd_toEndOf="@+id/topView"
         app:layout_constraintHorizontal_bias="0.076"
@@ -59,24 +39,13 @@
         app:layout_constraintTop_toTopOf="@+id/topView"
         app:layout_constraintVertical_bias="0.34" />
 
-    <View
-        android:id="@+id/btmView"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:background="@drawable/bottomview"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tplayoutfirstname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
         android:baselineAligned="true"
+        app:layout_constraintBottom_toTopOf="@+id/etlayoutphone"
         app:layout_constraintEnd_toStartOf="@+id/etlayoutsecondname"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -91,7 +60,8 @@
             android:inputType="textPersonName"
             android:maxLength="12"
             android:maxLines="1"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textColor="#000" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -99,12 +69,13 @@
         android:id="@+id/etlayoutsecondname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
         android:baselineAligned="false"
+        app:layout_constraintBottom_toTopOf="@+id/etlayoutphone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/tplayoutfirstname"
-        app:layout_constraintTop_toBottomOf="@+id/topView">
+        app:layout_constraintTop_toBottomOf="@+id/topView"
+        app:layout_constraintVertical_bias="1.0">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/secondname"
@@ -115,21 +86,20 @@
             android:maxLength="12"
             android:maxLines="1"
             android:paddingStart="10dp"
-            android:paddingEnd="0dp" />
+            android:paddingEnd="0dp"
+            android:textColor="#000" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/etlayoutphone"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="22dp"
-        android:layout_marginEnd="22dp"
         android:baselineAligned="false"
         app:layout_constraintBottom_toTopOf="@+id/etlayoutemail"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/etlayoutsecondname"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tplayoutfirstname">
+        app:layout_constraintStart_toStartOf="@+id/tplayoutfirstname"
+        app:layout_constraintTop_toBottomOf="@+id/etlayoutsecondname">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/phone"
@@ -140,20 +110,18 @@
             android:inputType="phone"
             android:maxLength="13"
             android:maxLines="1"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textColor="#000" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/etlayoutemail"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="22dp"
-        android:layout_marginEnd="22dp"
         android:baselineAligned="false"
         app:layout_constraintBottom_toTopOf="@+id/etlayoutpassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/etlayoutphone"
+        app:layout_constraintStart_toStartOf="@+id/etlayoutphone"
         app:layout_constraintTop_toBottomOf="@+id/etlayoutphone">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -164,7 +132,8 @@
             android:hint="  Email"
             android:inputType="textEmailAddress"
             android:maxLines="1"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textColor="#000" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -173,7 +142,6 @@
         android:layout_height="wrap_content"
         android:baselineAligned="true"
         app:layout_constraintBottom_toTopOf="@+id/btnsubmit"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/tppasswordconfirmlayout"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -191,16 +159,14 @@
             android:textAlignment="center" />
     </com.google.android.material.textfield.TextInputLayout>
 
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tppasswordconfirmlayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/btnsubmit"
+        app:layout_constraintBaseline_toBaselineOf="@+id/etlayoutpassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/etlayoutpassword"
-        app:layout_constraintTop_toBottomOf="@+id/etlayoutemail">
+        app:layout_constraintStart_toEndOf="@+id/etlayoutpassword">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/confirmPassword"
@@ -215,48 +181,124 @@
             android:textAlignment="center" />
     </com.google.android.material.textfield.TextInputLayout>
 
-
     <Button
         android:id="@+id/btnsubmit"
-        android:layout_width="235dp"
-        android:layout_height="50dp"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
         android:background="@drawable/btnselector"
-        android:drawableStart="@drawable/ic_cloud"
         android:gravity="center"
-        android:padding="15dp"
-        android:text="submit"
+        android:text="Submit"
         android:textAlignment="center"
+        android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/btmView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.869"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tppasswordconfirmlayout" />
+        app:layout_constraintBottom_toTopOf="@+id/offlineView"
+        app:layout_constraintEnd_toStartOf="@+id/logInProgress"
+        app:layout_constraintStart_toEndOf="@+id/clean"
+        app:layout_constraintTop_toBottomOf="@+id/etlayoutpassword" />
 
-    <ImageView
-        android:id="@+id/signal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:src="@drawable/signal"
-        app:layout_constraintBottom_toBottomOf="@+id/btnsubmit"
-        app:layout_constraintEnd_toEndOf="@+id/btnsubmit"
-        app:layout_constraintHorizontal_bias="0.95"
-        app:layout_constraintStart_toStartOf="@+id/btnsubmit"
-        app:layout_constraintTop_toTopOf="@+id/btnsubmit"
-        app:layout_constraintVertical_bias="0.50" />
+    <com.ldoublem.loadingviewlib.view.LVWifi
+        android:id="@+id/logInProgress"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/offlineView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toEndOf="@+id/btnsubmit"
+        app:layout_constraintTop_toBottomOf="@+id/tppasswordconfirmlayout"
+        app:layout_constraintVertical_bias="0.481" />
 
     <ImageView
         android:id="@+id/clean"
-        android:layout_width="50dp"
-        android:layout_height="45dp"
-        android:layout_margin="22dp"
-        app:layout_constraintBottom_toTopOf="@+id/btmView"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/offlineView"
         app:layout_constraintEnd_toStartOf="@+id/btnsubmit"
-        app:layout_constraintHorizontal_bias="0.067"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etlayoutpassword"
-        app:layout_constraintVertical_bias="0.484"
-        app:srcCompat="@drawable/ic_clean" />
+        app:srcCompat="@drawable/ic_clean"
+        tools:ignore="ContentDescription" />
+
+    <View
+        android:id="@+id/offlineView"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_marginBottom="2dp"
+        android:background="#E22E00"
+        app:layout_constraintBottom_toTopOf="@+id/btnSignin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textOffline"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fontFamily="@font/exo_bold"
+        android:gravity="center"
+        android:text="You are offline"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/offlineView"
+        app:layout_constraintEnd_toEndOf="@+id/offlineView"
+        app:layout_constraintStart_toStartOf="@+id/offlineView"
+        app:layout_constraintTop_toTopOf="@+id/offlineView" />
+
+    <View
+        android:id="@+id/hView"
+        android:layout_width="0dp"
+        android:layout_height="0.8dp"
+        android:background="@color/Orange"
+        app:layout_constraintBottom_toTopOf="@+id/btnSignin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/offlineView"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/btnSignin"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:background="@color/Orange"
+        android:fontFamily="@font/exo_bold"
+        android:shadowColor="#000"
+        android:text="Sign in"
+        android:textAllCaps="false"
+        android:textColor="#000"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/reportIssue"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@+id/btnHelp" />
+
+    <Button
+        android:id="@+id/btnHelp"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:background="@drawable/selectorwhite"
+        android:shadowColor="#000"
+        android:text="@string/help"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnSignin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/offlineView"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/reportIssue"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:background="@drawable/selectorwhite"
+        android:shadowColor="#000"
+        android:text="@string/reportIssue"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@+id/btnSignin"
+        app:layout_constraintTop_toBottomOf="@+id/offlineView"
+        app:layout_constraintVertical_bias="1.0" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,28 +7,19 @@ import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_splash.*
 
+private const val splashTimeOut = 3000L // 3 sec
+
 class SplashActivity : AppCompatActivity() {
-    private val splashTimeOut = 3000L // 3 sec
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        /* Hide App Icon
-         val componentName = ComponentName(this,SplashActivity::myclass.java)
-         packageManager.setComponentEnabledSetting(componentName,packageManager.)
-
-         TODO()WORK ON THIS
-         */
-
         lightBulb.startAnimation(AnimationUtils.loadAnimation(this, R.anim.animfrombtm))
         textTech.startAnimation(AnimationUtils.loadAnimation(this, R.anim.animfade))
 
-
         Handler().postDelayed({
-            //TODO() OPEN AUTHENTICATION ACTIVITY IF USER HAS ACCOUNT
-
-            startActivity(Intent(this, CreateAccount::class.java))
+            startActivity(Intent(this, SignInActivity::class.java))
             finish()
         }, splashTimeOut)
     }
