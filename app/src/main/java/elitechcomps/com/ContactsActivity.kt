@@ -8,6 +8,6 @@ class ContactsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_contacts)
-        // add contacts dialog
+        // todo add contacts dialog
     }
 }
