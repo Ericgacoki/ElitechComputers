@@ -34,7 +34,7 @@
         android:id="@+id/textComingsoon"
         android:layout_width="210dp"
         android:layout_height="56dp"
-        android:text="ERIC "
+        android:text="ERIC g"
         android:textAlignment="center"
         android:textColor="#000"
         android:textSize="25sp"
