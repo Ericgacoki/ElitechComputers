@@ -1,4 +1,4 @@
-# ElitechCompsco
+# ElitechComps
 Elitech computer college App provides services offered by Elitech
 
 
