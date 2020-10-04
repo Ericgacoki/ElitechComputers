@@ -2,5 +2,5 @@
 Elitech computer college App provides services offered by Elitech
 
 
-## \[🚧 This project is no longer valid.
-🚧 \]
+## `\[🚧 This project is no longer valid.
+🚧 \]`
