@@ -3,4 +3,4 @@ Elitech computer college App provides services offered by Elitech
 
 
 ## \[🚧 Work in progress 👷‍♀️⛏🔧️🚧 \]
-This project
+This project is no longer
