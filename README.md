@@ -1,4 +1,4 @@
-## Elitech Computers colle
+## Elitech Computers coll
 
 ##  NOTE :`This repo is no longer valid and I'm not maintaining it at all` 
 
