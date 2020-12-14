@@ -1,4 +1,4 @@
 ## Elitech Computers college
 
-##  NOTE :`This repo is no longer valid and I'm not maintaining at all` 
+##  NOTE :`This repo is no longer at all` 
 
